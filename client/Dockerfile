@@ -4,6 +4,12 @@ WORKDIR /app
 
 ADD . .
 
+ENV PHANTOMJS_CDNURL http://npm.taobao.org/mirrors/phantomjs
+
+ENV CHROMEDRIVER_CDNURL http://npm.taobao.org/mirrors/chromedriver
+
+ENV SELENIUM_CDNURL http://npm.taobao.org/mirrorss/selenium
+
 ENV PATH ./node_modules/.bin:$PATH
 
 RUN npm install --silent
