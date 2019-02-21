@@ -36,15 +36,13 @@ const baseConfig = {
         to: '/index.html'
       }],
     },
-    before: (app) => {
-      require('dotenv').config()
-    }
   },
   module: {
     rules: [{
         test: /\.pug$/,
         loader: 'pug-plain-loader'
-      }, {
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderOptions(currentEnv)
@@ -73,14 +71,12 @@ const baseConfig = {
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: "ts-loader",
-            options: {
-              appendTsxSuffixTo: [/\.vue$/]
-            }
+        use: [{
+          loader: "ts-loader",
+          options: {
+            appendTsxSuffixTo: [/\.vue$/]
           }
-        ]
+        }]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

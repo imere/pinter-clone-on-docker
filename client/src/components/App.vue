@@ -100,12 +100,6 @@ a:visited {
 
 @media all and (max-width: 700px) {
   .el-container {
-    padding: 0 5%;
-  }
-}
-
-@media all and (max-width: 550px) {
-  .el-container {
     padding: 0;
   }
 }

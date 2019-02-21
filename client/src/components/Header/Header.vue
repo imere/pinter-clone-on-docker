@@ -30,7 +30,7 @@ export default class Header extends Vue {}
 <style lang="scss" scoped>
 @media all and (max-width: 600px) {
   .el-menu-item {
-    font-size: 0.2rem;
+    font-size: 0.5rem;
   }
 }
 </style>

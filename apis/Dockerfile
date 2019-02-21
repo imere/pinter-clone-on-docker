@@ -6,8 +6,6 @@ ADD . .
 
 ENV PATH ./node_modules/.bin:$PATH
 
-RUN npm rebuild
-
 RUN npm install --silent
 
 RUN npm config set unsafe-perm true
