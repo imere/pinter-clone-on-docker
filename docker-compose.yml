@@ -24,13 +24,15 @@ services:
       - ./apis/.env
     environment:
       - NODE_ENV=production
-  #   depends_on:
-  #     - mongo
+    depends_on:
+      - mongo
+    links:
+      - 'mongo:db'
 
-  # mongo:
-  #   image: mongo
-  #   ports:
-  #     - 27017:27017
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
 
   nginx:
     build:
