@@ -2,7 +2,7 @@ const http = require('http')
 const express = require('express')
 
 
-require('mongoose').connect(process.env.uuri || 'mongodb://127.0.0.1:27017/test', {
+require('mongoose').connect(process.env.uuri || 'mongodb://mongo:27017/test', {
   useNewUrlParser: true
 })
 

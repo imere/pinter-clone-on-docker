@@ -8,9 +8,6 @@
   },
   "author": "imere",
   "license": "ISC",
-  "devDependencies": {
-    "cross-env": "^5.2.0"
-  },
   "dependencies": {
     "axios": "^0.18.0",
     "bcrypt": "^3.0.2",

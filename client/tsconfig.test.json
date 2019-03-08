@@ -6,10 +6,7 @@
     "module": "commonjs",
     "sourceMap": true,
     "target": "ES5",
-    "lib": [
-      "dom",
-      "es2015"
-    ]
+    "lib": ["dom", "es2015"]
   },
   "include": [
     "src/**/*.spec.ts",
@@ -17,9 +14,5 @@
     "tests/**/*.spec.ts",
     "tests/**/*.spec.tsx"
   ],
-  "exclude": [
-    "node_modules",
-    ".git",
-    ".vs"
-  ],
+  "exclude": ["node_modules", ".git", ".vs"]
 }

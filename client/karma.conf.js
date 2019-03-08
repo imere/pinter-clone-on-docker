@@ -1,21 +1,13 @@
-module.exports = function (config) {
+module.exports = function(config) {
   config.set({
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
-    frameworks: [
-      'jasmine',
-      'karma-typescript',
-    ],
+    frameworks: ['jasmine', 'karma-typescript'],
     client: {
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
+      clearContext: false, // leave Jasmine Spec Runner output visible in browser
     },
-    files: [
-      'node_modules/babel-polyfill/dist/polyfill.js',
-      'src/**/*.spec.ts',
-    ],
-    exclude: [
-      'node_modules',
-    ],
+    files: ['node_modules/babel-polyfill/dist/polyfill.js', 'src/**/*.spec.ts'],
+    exclude: ['node_modules'],
     preprocessors: {
       'src/**/*.spec.ts': [
         'karma-typescript',
@@ -29,15 +21,15 @@ module.exports = function (config) {
         entrypoints: /\.spec\.tsx?$/,
         exclude: [],
         ignore: [],
-        noParse: "",
+        noParse: '',
         resolve: {
           alias: {},
-          extensions: [".js", ".json"],
-          directories: ["node_modules"]
+          extensions: ['.js', '.json'],
+          directories: ['node_modules'],
         },
         sourceMap: false,
-        transforms: [require("karma-typescript-es6-transform")()],
-        validateSyntax: true
+        transforms: [require('karma-typescript-es6-transform')()],
+        validateSyntax: true,
       },
       compilerDelay: 500,
       compilerOptions: {
@@ -64,5 +56,5 @@ module.exports = function (config) {
     ],
     singleRun: false,
     concurrency: 1, // Infinity,
-  })
-}
+  });
+};

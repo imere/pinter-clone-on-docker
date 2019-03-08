@@ -1,11 +1,13 @@
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const testConfig = {
   mode: 'development',
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.pug$/,
-        loader: 'pug-plain-loader'
-      }, {
+        loader: 'pug-plain-loader',
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
@@ -14,8 +16,8 @@ const testConfig = {
             {
               loader: 'css-loader',
               options: {
-                importLoaders: 1
-              }
+                importLoaders: 1,
+              },
             },
             'sass-loader',
             'postcss-loader',
@@ -24,9 +26,9 @@ const testConfig = {
             video: ['src', 'poster'],
             source: 'src',
             img: 'src',
-            image: 'xlink:href'
-          }
-        }
+            image: 'xlink:href',
+          },
+        },
       },
       {
         test: /\.(sc|c)ss$/,
@@ -46,58 +48,57 @@ const testConfig = {
       // },
       {
         test: /\.tsx?$/,
-        use: [{
-            loader: "ts-loader",
+        use: [
+          {
+            loader: 'ts-loader',
             options: {
-              appendTsxSuffixTo: [/\.vue$/]
-            }
+              appendTsxSuffixTo: [/\.vue$/],
+            },
           },
           // "babel-loader",
-        ]
+        ],
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'img/[name].[ext]'
-        }
+          name: 'img/[name].[ext]',
+        },
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'media/[name].[ext]'
-        }
+          name: 'media/[name].[ext]',
+        },
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'fonts/[name].[ext]'
-        }
+          name: 'fonts/[name].[ext]',
+        },
       },
     ],
   },
   resolve: {
     extensions: ['.ts', '.js'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
-    }
+      vue$: 'vue/dist/vue.esm.js',
+    },
   },
-  plugins: [
-    new VueLoaderPlugin()
-  ],
+  plugins: [new VueLoaderPlugin()],
   node: {
     setImmediate: false,
     dgram: 'empty',
     fs: 'empty',
     net: 'empty',
     tls: 'empty',
-    child_process: 'empty'
-  }
-}
+    child_process: 'empty',
+  },
+};
 
-module.exports = testConfig
+module.exports = testConfig;
