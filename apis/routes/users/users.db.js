@@ -1,11 +1,11 @@
+const { validateUsername } = require('../../config/utils');
+
 const UserSchema = {
   username: {
     type: String,
     unique: true,
     validate: {
-      validator(value) {
-        return /^[a-zA-Z]{5,10}$/.test(value);
-      },
+      validator: validateUsername,
     },
   },
   twitterid: {

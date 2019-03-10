@@ -5,16 +5,15 @@ WORKDIR /app
 ADD . .
 
 ENV PHANTOMJS_CDNURL http://npm.taobao.org/mirrors/phantomjs
-
 ENV CHROMEDRIVER_CDNURL http://npm.taobao.org/mirrors/chromedriver
-
 ENV SELENIUM_CDNURL http://npm.taobao.org/mirrorss/selenium
+ENV SASS_BINARY_SITE https://npm.taobao.org/mirrors/node-sass
 
 ENV PATH ./node_modules/.bin:$PATH
 
-RUN npm install --silent
-
 RUN npm config set unsafe-perm true
+
+RUN npm install --silent --registry=https://registry.npm.taobao.org
 
 RUN npm run prod
 

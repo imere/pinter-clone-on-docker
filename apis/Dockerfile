@@ -6,8 +6,8 @@ ADD . .
 
 ENV PATH ./node_modules/.bin:$PATH
 
-RUN npm install --silent
-
 RUN npm config set unsafe-perm true
+
+RUN npm install --silent
 
 CMD [ "npm", "start" ]

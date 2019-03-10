@@ -10,10 +10,10 @@
               time(class="time") {{pin.date}}
               el-button(type="text" class="button", :data-id="pin.id", @click="del") DELETE
 </template>
+
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import { CancelTokenSource } from "axios";
-import { Loading } from "element-ui";
 
 @Component
 export default class MyPins extends Vue {
@@ -66,24 +66,21 @@ export default class MyPins extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-.time {
-  font-size: 13px;
-  color: #999;
-}
 
-.bottom {
-  margin-top: 13px;
-  line-height: 12px;
-}
+<style lang="sass" scoped>
+.time
+  font-size: 13px
+  color: #999
+
+.bottom
+  margin-top: 13px
+  line-height: 12px
 
 .clearfix:before,
-.clearfix:after {
-  display: table;
-  content: "";
-}
+.clearfix:after
+  display: table
+  content: ""
 
-.clearfix:after {
-  clear: both;
-}
+.clearfix:after
+  clear: both
 </style>

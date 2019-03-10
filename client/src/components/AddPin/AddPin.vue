@@ -63,8 +63,8 @@ export default class AddPin extends Vue {
         })
         .then(data => {
           this.submitLoading = false;
-          this.$message.success('Success')
-          this.reset('link')
+          this.$message.success("Success");
+          this.reset("link");
         })
         .catch(ex => {
           this.submitLoading = false;

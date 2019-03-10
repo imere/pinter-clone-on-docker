@@ -6,6 +6,7 @@ footer
       XXXX备 XXXX号
 
 </template>
+
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import ba from "../../assets/b.png";
@@ -13,14 +14,16 @@ import ba from "../../assets/b.png";
 @Component
 export default class Footer extends Vue {
   mounted() {
-    (document.querySelector("#ba") as HTMLImageElement).src = ba;
+    if (!!ba) {
+      (document.querySelector("#ba") as HTMLImageElement).src = ba;
+    }
   }
 }
 </script>
-<style lang="scss" scoped>
-footer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
+
+<style lang="sass" scoped>
+footer
+  width: 100%
+  display: flex
+  justify-content: center
 </style>

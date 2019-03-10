@@ -10,8 +10,8 @@ module.exports = function(config) {
     exclude: ['node_modules'],
     preprocessors: {
       'src/**/*.spec.ts': [
-        'karma-typescript',
-        // 'webpack',
+        // 'karma-typescript',
+        'webpack',
       ],
     },
     karmaTypescriptConfig: {
@@ -36,10 +36,10 @@ module.exports = function(config) {
         noImplicitAny: true,
       },
     },
-    // webpack: require('./config/webpack.config.test'),
-    // webpackMiddleware: {
-    //   noInfo: true
-    // },
+    webpack: require('./webpack.config.test'),
+    webpackMiddleware: {
+      noInfo: true,
+    },
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['dots', 'kjhtml'],
@@ -51,8 +51,8 @@ module.exports = function(config) {
     autoWatch: true,
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: [
-      'PhantomJS',
-      //'Chrome',
+      // 'PhantomJS',
+      'Chrome',
     ],
     singleRun: false,
     concurrency: 1, // Infinity,

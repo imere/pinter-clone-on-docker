@@ -1,13 +1,19 @@
 const router = require('express').Router();
 const passport = require('passport');
 const { hashSync } = require('bcrypt');
+const { validateUsername, validatePassword } = require('../../config/utils');
 
 const Users = require('./users.db');
 
 router.post('/create', (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
-  if (!username || !password) {
+  if (
+    !username ||
+    !password ||
+    !validateUsername(username) ||
+    !validatePassword(password)
+  ) {
     return res.status(400).end();
   }
   Users.create({

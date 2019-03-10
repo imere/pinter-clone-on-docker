@@ -38,7 +38,7 @@ const baseConfig = {
     hotUpdateChunkFilename: '[id].[hash].hot-update.js',
   },
   devServer: {
-    port: process.env.PORT || 80,
+    port: process.env.PORT || require('./config/config').FALLBACK_PORT,
     historyApiFallback: {
       rewrites: [
         {
@@ -48,15 +48,14 @@ const baseConfig = {
       ],
     },
     before: app => {
-      require('dotenv').config();
       require('mongoose').connect(
-        process.env.uuri || 'mongodb://mongo:27017/test',
+        process.env.uuri || require('./config/config').FALLBACK_UURI,
         {
           useNewUrlParser: true,
         }
       );
-      require('./server/middleware')(app);
-      require('./server/routes')(app);
+      require('../apis/middleware')(app);
+      require('../apis/routes')(app);
     },
   },
   module: {
@@ -74,9 +73,9 @@ const baseConfig = {
   },
   resolve: {
     extensions: ['.ts', '.js'],
-    alias: {
-      vue$: 'vue/dist/vue.esm.js',
-    },
+    // alias: {
+    //   vue$: 'vue/dist/vue.esm.js',
+    // },
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
@@ -107,8 +106,16 @@ const baseConfig = {
         : cssDist('[name].css'),
     }),
     new VueLoaderPlugin(),
-    // new DeepScopePlugin(),
+    new DeepScopePlugin(),
     new DashboardPlugin(),
+  ],
+  externals: [
+    {
+      vue: 'Vue',
+      vuex: 'Vuex',
+      'vue-router': 'VueRouter',
+      'element-ui': 'ELEMENT',
+    },
   ],
   node: {
     setImmediate: false,

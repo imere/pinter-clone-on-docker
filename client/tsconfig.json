@@ -12,11 +12,12 @@
     "sourceMap": true,
     "baseUrl": ".",
     "allowJs": true,
+    "types": ["jest"],
     "paths": {
       "@/*": ["src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
-    "typeRoots": ["node_modules/@types"]
+    "typeRoots": ["node_modules/@types", "node_modules/@types/jest"]
   },
   "include": [
     "src/**/*.ts",

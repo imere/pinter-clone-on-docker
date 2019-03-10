@@ -30,6 +30,11 @@ module.exports = {
           name: 'cv',
           reuseExistingChunk: true,
         },
+        http: {
+          test: /[\\/]node_modules[\\/](.*axios.*)[\\/]/,
+          name: 'ct',
+          reuseExistingChunk: true,
+        },
         ui: {
           test: /[\\/]node_modules[\\/](element.*)[\\/]/,
           name: 'ce',
